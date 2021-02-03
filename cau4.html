@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body><canvas id="myCanvas" width="1000" height="500"></canvas>
+
+<script>
+    let canvas = document.getElementById("myCanvas");
+    let ctx = canvas.getContext("2d");
+    Circle = function (posX,posY,radius,color){
+        this.posX = posX
+        this.posY = posY;
+        this.radius = radius;
+        this.color = color
+
+        this.render = function (){
+            ctx.beginPath();
+            ctx.arc(this.posX, this.posY,this.radius, 0, Math.PI * 2);
+            ctx.fillStyle = this.color
+            ctx.fill();
+            ctx.closePath()
+        }
+    }
+    let circle = new Circle(10,10,100,'#000000');
+    circle.render()
+</script>
+
+</body>
+</html>
